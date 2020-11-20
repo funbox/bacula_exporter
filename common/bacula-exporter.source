@@ -1,0 +1,10 @@
+LICENSE
+Makefile
+README.md
+common/bacula-exporter.init
+common/bacula-exporter.service
+common/bacula_exporter.logrotate
+common/bacula_exporter.knf
+daemon/*.go
+storage/rdbms/*.go
+bacula_exporter.go

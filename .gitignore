@@ -4,6 +4,8 @@
 *.dll
 *.so
 *.dylib
+*.rpm
+*.tar.gz
 
 # IDEA configs
 .idea/

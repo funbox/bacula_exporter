@@ -1,0 +1,9 @@
+/var/log/bacula_exporter/*.log {
+    weekly
+    rotate 8
+    copytruncate
+    delaycompress
+    compress
+    notifempty
+    missingok
+}
