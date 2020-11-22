@@ -11,9 +11,9 @@ func (db *DB) GetLatestJobs() ([]*BaculaJob, error) {
 		t.Name,
                 t.Level,
                 t.JobStatus,
-                extract(epoch from t.SchedTime)::integer as SchedTime,
-                extract(epoch from t.StartTime)::integer as StartTime,
-                extract(epoch from t.EndTime)::integer as EndTime,
+                coalesce(extract(epoch from t.SchedTime), 0)::integer as SchedTime,
+                coalesce(extract(epoch from t.StartTime), 0)::integer as StartTime,
+                coalesce(extract(epoch from t.EndTime), 0)::integer as EndTime,
                 t.JobBytes::bigint,
                 t.JobFiles::bigint
           FROM
