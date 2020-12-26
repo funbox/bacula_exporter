@@ -12,7 +12,7 @@
 
 ################################################################################
 
-DOCKER_IMAGE = docker.pkg.github.com/gongled/bacula_exporter/bacula_exporter
+DOCKER_IMAGE = gongled/bacula_exporter
 VERSION := 1.0.0
 BUMPVERSION_PART ?= patch
 
@@ -26,8 +26,11 @@ bacula_exporter: ## Build bacula_exporter binary
 compress: ## Compress bacula_exporter binary
 	upx bacula_exporter
 
-docker: ## Build Docker image
+docker-build: ## Build Docker image
 	docker build -t $(DOCKER_IMAGE):$(VERSION) .
+
+docker-push: ## Push Docker image
+	docker push $(DOCKER_IMAGE):$(VERSION)
 
 chart: ## Build Helm chart
 	helm package charts/bacula_exporter

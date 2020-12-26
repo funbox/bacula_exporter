@@ -23,10 +23,10 @@ make all
 make docker
 ```
 
-## Docker GitHub Image
+## DockerHub
 
 ```shell
-docker pull docker.pkg.github.com/gongled/bacula_exporter/bacula_exporter:1.0.0
+docker pull gongled/bacula_exporter:1.0.0
 ```
 
 ## Run
