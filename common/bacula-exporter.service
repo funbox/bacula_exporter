@@ -1,0 +1,11 @@
+[Unit]
+Description=Bacula Exporter for Prometheus
+After=network.target
+
+[Service]
+PIDFile=/var/run/bacula-exporter/bacula-exporter.pid
+ExecStart=/etc/init.d/bacula-exporter start
+ExecStop=/etc/init.d/bacula-exporter stop
+
+[Install]
+WantedBy=multi-user.target

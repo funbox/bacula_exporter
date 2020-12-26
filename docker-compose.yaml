@@ -1,0 +1,61 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    working_dir: /app
+    command: /app/bacula_exporter -c /config/bacula_exporter.dev.knf
+    ports:
+      - 33407:33407
+    volumes:
+      - ./common/bacula_exporter.dev.knf:/config/bacula_exporter.dev.knf
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=bacula
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    volumes:
+      - ./common/data.sql.gz:/docker-entrypoint-initdb.d/data.sql.gz
+      - pgdata:/var/lib/postgresql/data
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9000:9090
+    volumes:
+      - ./common/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus:/prometheus
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+    depends_on:
+      - app
+    links:
+      - app
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    volumes:
+      - grafana:/var/lib/grafana
+      - ./common/grafana/provisioning/:/etc/grafana/provisioning/
+      - ./common/grafana/dashboards/:/etc/grafana/dashboards/
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=password
+      - GF_USERS_ALLOW_SIGN_UP=false
+    depends_on:
+      - prometheus
+    links:
+      - prometheus
+
+volumes:
+  pgdata: {}
+  prometheus: {}
+  grafana: {}

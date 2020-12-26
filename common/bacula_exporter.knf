@@ -1,0 +1,47 @@
+[http]
+
+  # HTTP server IP
+  ip: 0.0.0.0
+
+  # HTTP server port
+  port: 33407
+
+  # HTTP metrics endpoint
+  endpoint: /metrics
+
+[db]
+
+  # Database name
+  name: bacula
+
+  # Username
+  username: bacula
+
+  # Password
+  password: keepinsecret
+
+  # IP address or FQDN
+  host: db.example.tld
+
+  # Port
+  port: 5432
+
+  # SSL mode
+  sslmode: disable
+
+[log]
+
+  # Log output (file/console)
+  output: console
+
+  # Log file dir
+  dir: /
+
+  # Path to log file
+  file: {log:dir}/bacula_exporter.log
+
+  # Log permissions
+  perms: 600
+
+  # Default log level (debug/info/warn/error/crit)
+  level: info
