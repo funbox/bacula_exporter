@@ -1,4 +1,4 @@
-name: deploy
+name: docker
 
 on:
   push:
@@ -30,7 +30,3 @@ jobs:
         if: ${{ success() }}
         run: |
           make docker-push
-
-          
-
-      
