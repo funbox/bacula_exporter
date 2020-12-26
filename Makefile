@@ -55,6 +55,9 @@ deps: git-config ## Download dependencies
 	go get -d -v pkg.re/essentialkaos/ek.v12/signal
 	go get -d -v pkg.re/essentialkaos/ek.v12/usage
 
+bump:
+	bump2version $(BUMPVERSION_PART)
+
 fmt: ## Format source code with gofmt
 	find . -name "*.go" -exec gofmt -s -w {} \;
 
