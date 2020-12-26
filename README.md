@@ -102,7 +102,7 @@ bacula_exporter -c /path/to/bacula_exporter.knf
 ### Docker image
 
 ```shell
-docker pull gongled/bacula_exporter:1.0.0
+docker pull gongled/bacula_exporter:1.0.1
 ```
 
 ## Usage
