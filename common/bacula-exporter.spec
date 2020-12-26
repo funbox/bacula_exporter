@@ -56,9 +56,9 @@ Version:         1.0.0
 Release:         0%{?dist}
 Group:           Applications/System
 License:         MIT
-URL:             https://github.com/gongled/bacula_exporter
+URL:             https://github.com/funbox/bacula_exporter
 
-Source0:         https://github.com/gongled/%{pkg_name}/archive/v%{version}.tar.gz
+Source0:         https://github.com/funbox/%{pkg_name}/archive/v%{version}.tar.gz
 
 BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -85,7 +85,7 @@ Bacula Exporter for Prometheus
 %build
 export GOPATH=$(pwd)
 
-pushd src/github.com/gongled/%{pkg_name}
+pushd src/github.com/funbox/%{pkg_name}
   %{__make} %{?_smp_mflags} deps
   %{__make} %{?_smp_mflags} all
 popd
@@ -102,20 +102,20 @@ install -dm 755 %{buildroot}%{_unitdir}
 install -dm 755 %{buildroot}%{_logdir}/%{pkg_name}
 install -dm 755 %{buildroot}%{_rundir}/%{pkg_name}
 
-install -pm 755 src/github.com/gongled/%{pkg_name}/%{pkg_name} \
+install -pm 755 src/github.com/funbox/%{pkg_name}/%{pkg_name} \
                 %{buildroot}%{_bindir}/
 
-install -pm 644 src/github.com/gongled/%{pkg_name}/common/%{pkg_name}.knf \
+install -pm 644 src/github.com/funbox/%{pkg_name}/common/%{pkg_name}.knf \
                 %{buildroot}%{_sysconfdir}/%{pkg_name}/%{pkg_name}.knf
 
-install -pm 755 src/github.com/gongled/%{pkg_name}/common/%{name}.init \
+install -pm 755 src/github.com/funbox/%{pkg_name}/common/%{name}.init \
                 %{buildroot}%{_initddir}/%{name}
 
-install -pm 644 src/github.com/gongled/%{pkg_name}/common/%{pkg_name}.logrotate \
+install -pm 644 src/github.com/funbox/%{pkg_name}/common/%{pkg_name}.logrotate \
                 %{buildroot}%{_sysconfdir}/logrotate.d/%{pkg_name}
 
 %if 0%{?rhel} >= 7
-install -pDm 644 src/github.com/gongled/%{pkg_name}/common/%{name}.service \
+install -pDm 644 src/github.com/funbox/%{pkg_name}/common/%{name}.service \
                  %{buildroot}%{_unitdir}/
 %endif
 popd
@@ -174,5 +174,5 @@ fi
 ################################################################################
 
 %changelog
-* Mon Jun 29 2020 Gleb Goncharov <inbox@gongled.ru> - 1.0.0-0
+* Mon Jun 29 2020 Gleb Goncharov <inbox@funbox.ru> - 1.0.0-0
 - Initial release

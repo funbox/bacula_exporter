@@ -102,7 +102,7 @@ bacula_exporter -c /path/to/bacula_exporter.knf
 ### Docker image
 
 ```shell
-docker pull gongled/bacula_exporter:1.0.1
+docker pull funbox/bacula_exporter:1.0.1
 ```
 
 ## Usage
@@ -188,13 +188,13 @@ Open Grafana (http://127.0.0.1:3000).
 
 | Artifact | Status |
 |------------|--------|
-| `docker` | [![Build Status](https://github.com/gongled/bacula_exporter/workflows/docker/badge.svg?branch=master)](https://github.com/gongled/bacula_exporter) |
+| `docker` | [![Build Status](https://github.com/funbox/bacula_exporter/workflows/docker/badge.svg?branch=master)](https://github.com/funbox/bacula_exporter) |
 
 ## Contribute
 
 If you like Bacula Exporter, please give me a star. This will help more people know Bacula Exporter.
 
-Please feel free to send me [pull requests](https://github.com/gongled/bacula_exporter/pulls).
+Please feel free to send me [pull requests](https://github.com/funbox/bacula_exporter/pulls).
 
 ## License
 

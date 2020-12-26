@@ -12,7 +12,7 @@
 
 ################################################################################
 
-DOCKER_IMAGE = gongled/bacula_exporter
+DOCKER_IMAGE = funbox/bacula_exporter
 VERSION := 1.0.1
 BUMPVERSION_PART ?= patch
 
@@ -45,7 +45,7 @@ git-config: ## Configure git redirects for stable import path services
 	git config --global http.https://pkg.re.followRedirects true
 
 deps: git-config ## Download dependencies
-	go get -d -v github.com/gongled/bacula_exporter
+	go get -d -v github.com/funbox/bacula_exporter
 	go get -d -v github.com/jmoiron/sqlx
 	go get -d -v github.com/lib/pq
 	go get -d -v github.com/avast/retry-go

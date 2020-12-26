@@ -16,7 +16,7 @@ import (
 	"pkg.re/essentialkaos/ek.v12/signal"
 	"pkg.re/essentialkaos/ek.v12/usage"
 
-	rdbms "github.com/gongled/bacula_exporter/storage/rdbms"
+	rdbms "github.com/funbox/bacula_exporter/storage/rdbms"
 	knfv "pkg.re/essentialkaos/ek.v12/knf/validators"
 	knff "pkg.re/essentialkaos/ek.v12/knf/validators/fs"
 
