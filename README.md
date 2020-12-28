@@ -1,4 +1,4 @@
-# About
+# Bacula Exporter
 
 Prometheus Exporter for [Bacula](https://bacula.org/) metrics written in Go.
 
@@ -10,7 +10,7 @@ Prometheus Exporter for [Bacula](https://bacula.org/) metrics written in Go.
 
 ### Requirements
 
-Note, that the following dependencies should be satisfied.
+Note, that the following dependencies should be satisfied:
 
 - [Docker](https://docker.com)
 - [Docker Compose](https://docs.docker.com/compose/)
@@ -22,7 +22,7 @@ Currently we are supporting only PostgreSQL backend.
 
 ## Features
 
-Prometheus Expoter exposes several metrics.
+Prometheus Exporter exposes several metrics.
 
 ### Latest jobs
 
@@ -192,10 +192,12 @@ Open Grafana (http://127.0.0.1:3000).
 
 ## Contribute
 
-If you like Bacula Exporter, please give me a star. This will help more people know Bacula Exporter.
+If you like Bacula Exporter, please give it a star. This will help more people know Bacula Exporter.
 
-Please feel free to send me [pull requests](https://github.com/funbox/bacula_exporter/pulls).
+Please feel free to send your [pull requests](https://github.com/funbox/bacula_exporter/pulls).
 
 ## License
 
 MIT
+
+[![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)
