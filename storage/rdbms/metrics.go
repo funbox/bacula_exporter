@@ -36,6 +36,8 @@ func (db *DB) GetLatestJobs() ([]*BaculaJob, error) {
                 t.Level = tm.Level
                 AND
                 t.StartTime = tm.MaxStartTime
+          		AND
+                t.StartTime > NOW() - INTERVAL '30 days'
           WHERE
                 t.Type = 'B'`
 
