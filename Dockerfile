@@ -4,7 +4,7 @@ RUN apt-get update && \
 WORKDIR /go/src/github.com/funbox/bacula_exporter
 ENV GOPATH=/go/
 COPY . .
-RUN make clean && make deps && make bacula_exporter && make compress
+RUN make clean && make bacula_exporter && make compress
 
 FROM scratch
 WORKDIR /
