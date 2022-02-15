@@ -102,7 +102,7 @@ bacula_exporter -c /path/to/bacula_exporter.knf
 ### Docker image
 
 ```shell
-docker pull funbox/bacula_exporter:1.0.1
+docker pull funbox/bacula_exporter:1.1.0
 ```
 
 ## Usage

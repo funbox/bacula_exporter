@@ -8,12 +8,12 @@
 ################################################################################
 
 .DEFAULT_GOAL := help
-.PHONY = fmt vet all clean git-config deps help
+.PHONY = fmt vet all clean git-config help
 
 ################################################################################
 
 DOCKER_IMAGE = funbox/bacula_exporter
-VERSION := 1.0.1
+VERSION := 1.1.0
 BUMPVERSION_PART ?= patch
 
 ################################################################################
@@ -43,20 +43,6 @@ uninstall: ## Uninstall all binaries
 
 git-config: ## Configure git redirects for stable import path services
 	git config --global http.https://pkg.re.followRedirects true
-
-deps: git-config ## Download dependencies
-	go get -d -v github.com/funbox/bacula_exporter
-	go get -d -v github.com/jmoiron/sqlx
-	go get -d -v github.com/lib/pq
-	go get -d -v github.com/avast/retry-go
-	go get -d -v pkg.re/essentialkaos/ek.v12/fmtc
-	go get -d -v pkg.re/essentialkaos/ek.v12/knf
-	go get -d -v pkg.re/essentialkaos/ek.v12/knf/validators
-	go get -d -v pkg.re/essentialkaos/ek.v12/knf/validators/fs
-	go get -d -v pkg.re/essentialkaos/ek.v12/log
-	go get -d -v pkg.re/essentialkaos/ek.v12/options
-	go get -d -v pkg.re/essentialkaos/ek.v12/signal
-	go get -d -v pkg.re/essentialkaos/ek.v12/usage
 
 bump:
 	bump2version $(BUMPVERSION_PART)
