@@ -28,7 +28,7 @@ import (
 // Basic info
 const (
 	APP  = "bacula_exporter"
-	VER  = "1.0.1"
+	VER  = "1.1.0"
 	DESC = "Prometheus Exporter for Bacula"
 )
 
