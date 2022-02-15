@@ -8,8 +8,9 @@ func (db *DB) GetLatestJobs() ([]*BaculaJob, error) {
 
 	sqlState := `
           SELECT
-		t.Name,
+				t.Name,
                 t.Level,
+                t.JobId,
                 t.JobStatus,
                 coalesce(extract(epoch from t.SchedTime), 0)::integer as SchedTime,
                 coalesce(extract(epoch from t.StartTime), 0)::integer as StartTime,
@@ -35,6 +36,8 @@ func (db *DB) GetLatestJobs() ([]*BaculaJob, error) {
                 t.Level = tm.Level
                 AND
                 t.StartTime = tm.MaxStartTime
+          		AND
+                t.StartTime > NOW() - INTERVAL '30 days'
           WHERE
                 t.Type = 'B'`
 

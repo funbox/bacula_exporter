@@ -5,6 +5,7 @@ package rdbms
 type BaculaJob struct {
 	Name      string `db:"name"`
 	Level     string `db:"level"`
+	JobId     string `db:"jobid"`
 	Status    string `db:"jobstatus"`
 	SchedTime uint32 `db:"schedtime"`
 	StartTime uint32 `db:"starttime"`
